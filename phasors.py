@@ -15,7 +15,7 @@ class Phasor:
         return abs(self.cplx)
 
     def __str__(self):
-        return f"Rectangular: {self.cplx.real:.3f} + j{self.cplx.imag:.3f}\nPolar: {abs(self.cplx):.3f} /_ {math.degrees(cm.phase(self.cplx)):.3f}°"
+        return f"Rectangular: {self.cplx.real:.3f} + j{self.cplx.imag:.3f}\nPolar: {abs(self.cplx):.3f} /_ {math.degrees(cm.phase(self.cplx)):.3f}{chr(176)}"
 
     def __add__(self, other):
         return Phasor.new_rect(self.cplx.real + other.cplx.real, self.cplx.imag + other.cplx.imag)
@@ -42,7 +42,4 @@ v1 = Phasor.new_polar(1,45)
 v2 = Phasor.new_rect(0,1)
 
 print(v1*v2)
-
-
-
 
