@@ -37,6 +37,11 @@ class Phasor:
     def new_polar(cls, magnitude, phase):
         return cls(cplx = cm.rect(magnitude, math.radians(phase)))
 
+class PowerTriangle:
+    def __init__(self, P, pf, direction="lagging"):
+        S_magnitude = P/pf
+        angle = np.arccos(pf) if direction="lagging" else -np.arccos(pf)
+        self.phasor = Phasor.new_polar(S_magnitude)
 
 v1 = Phasor.new_polar(1,45)
 v2 = Phasor.new_rect(0,1)
